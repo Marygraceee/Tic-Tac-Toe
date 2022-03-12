@@ -1,14 +1,18 @@
 let grid = document.querySelector(".grid");
 let squares = document.querySelectorAll(".square");
 let resetButton = document.getElementById("resetButton");
-let turnPicker = "cross";
+let selectCross = document.getElementById("cross")
+let selectCircle = document.getElementById("circle")
+let startgamebtn = document.getElementById("startgamebtn");
+selectCross.checked = true;
+let turnPicker = "";
 
 (function resetAll() {
   resetButton.addEventListener("click", () => {
     squares.forEach((square) => {
       square.classList.remove("cross", "circle");
-      turnPicker = "cross";
-     
+      turnPicker = "";
+      startgamebtn.style.cssText = "display: block;"
     })
   })
 })()
@@ -70,7 +74,7 @@ function checkWinner(){
     }
 }
 
-(function playGame() {
+function playGame() {
   squares.forEach((square) => {
     square.addEventListener("click", () => {
       if (
@@ -93,15 +97,35 @@ function checkWinner(){
       }
     })
   })
-})();
+}
 
 function resetGame(){
     squares.forEach((square) => {
         square.classList.remove("cross", "circle");
-        turnPicker = "cross";
+        turnPicker = "";
+        startgamebtn.style.cssText = "display: block;"
       })
 }
 
+
+function playerSelection(){
+if (selectCross.checked === true){
+    turnPicker = "cross"
+    return turnPicker
+}
+if (selectCircle.checked === true){
+    turnPicker = "circle"
+    return turnPicker
+}
+}
+
+(function startGame(){
+startgamebtn.addEventListener("click", () =>{
+    startgamebtn.style.cssText = "display: none;"
+    playerSelection()
+    playGame()
+})
+})()
 
 
 
