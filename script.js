@@ -12,6 +12,7 @@ let turnPicker = "";
     squares.forEach((square) => {
       square.classList.remove("cross", "circle");
       turnPicker = "";
+      square.textContent = ""
       startgamebtn.style.cssText = "display: block;"
     })
   })
@@ -45,7 +46,7 @@ function checkWinner(){
         alert("Cross won!")
         resetGame()
     }
-    if (squares.item(0).className === "square circle" &&
+    else if (squares.item(0).className === "square circle" &&
      squares.item(1).className === "square circle" &&
       squares.item(2).className === "square circle" ||
       squares.item(3).className === "square circle" &&
@@ -71,7 +72,7 @@ function checkWinner(){
       squares.item(6).className === "square circle"){
         alert("Circle won!")
         resetGame()
-    }
+    } 
 }
 
 function playGame() {
@@ -83,6 +84,7 @@ function playGame() {
         square.className !== "square circle"
       ) {
         square.classList.add("cross");
+        square.textContent = "X"
         turnPicker = "circle";
         checkWinner()
       }
@@ -92,6 +94,7 @@ function playGame() {
         square.className !== "square circle"
       ) {
         square.classList.add("circle");
+        square.textContent = "O"
         turnPicker = "cross";
         checkWinner()
       }
@@ -102,6 +105,7 @@ function playGame() {
 function resetGame(){
     squares.forEach((square) => {
         square.classList.remove("cross", "circle");
+        square.textContent = ""
         turnPicker = "";
         startgamebtn.style.cssText = "display: block;"
       })

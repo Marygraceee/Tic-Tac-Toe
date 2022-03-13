@@ -90,27 +90,20 @@ background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4rem;
+    font-size: 4.5rem;
     cursor: pointer;
 }
 
 
 .square.cross
 {
-    background-color: red;
+    font-family: 'Fredoka', sans-serif;
     cursor: not-allowed;
-    width: 90%;
-    height: 90%;
-    align-self: center;
-    justify-self: center;
+    
 }
 
 .square.circle {
-    background-color: purple;
+    font-family: 'Fredoka', sans-serif; 
     cursor: not-allowed;
-    border-radius: 50%;
-    width: 90%;
-    height: 90%;
-    align-self: center;
-    justify-self: center;
+    
 }
